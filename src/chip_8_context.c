@@ -29,7 +29,7 @@ struct Chip8Context init_chip8_context() {
     return context;
 }
 
-enum Chip8Runtime load_rom(const char *file_name, struct Chip8Context *context) {
+enum Chip8Result load_rom(const char *file_name, struct Chip8Context *context) {
     FILE *file_ptr = fopen(file_name, "rb");
 
     if (file_ptr == NULL) {

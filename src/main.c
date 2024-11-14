@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-#include "chip_8_display.h"
+#include "chip_8.h"
 
 int main(int argc, char* argv[]) {
     struct Chip8Context chip8_context = init_chip8_context();
 
     if (argc == 2) {
-        enum Chip8Runtime result = load_rom(argv[1], &chip8_context);
+        enum Chip8Result result = load_rom(argv[1], &chip8_context);
         if (result != SUCCESS) {
             return result;
         }

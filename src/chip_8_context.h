@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-enum Chip8Runtime {
+enum Chip8Result {
     SUCCESS = 0,
     FILE_READ_ERROR = 1,
     ROM_SIZE_EXCEEDED = 1,
@@ -42,7 +42,7 @@ struct Chip8Context {
 struct Chip8Context init_chip8_context();
 
 // Loads a ROM file into the memory of the interpreter
-enum Chip8Runtime load_rom(const char *file_name, struct Chip8Context *context);
+enum Chip8Result load_rom(const char *file_name, struct Chip8Context *context);
 
 // Advances the emulator by 1 update cycle
 void update(struct Chip8Context *context);

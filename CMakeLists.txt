@@ -10,7 +10,8 @@ add_executable(chip8 src/main.c
         src/chip_8_context.c
         src/chip_8_display.h
         src/chip_8_display.c
-        src/chip_8_context.h)
+        src/chip_8_context.h
+        src/chip_8.h)
 
 target_link_libraries(chip8 ${SDL3_LIBRARIES})
 target_include_directories(chip8 PUBLIC ${SDL3_INCLUDE_DIRS})

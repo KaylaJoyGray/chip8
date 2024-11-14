@@ -1,6 +1,6 @@
 #include "chip_8_display.h"
 
-enum Chip8Runtime initialize_SDL(struct SDL_Context *sdl_context) {
+enum Chip8Result initialize_SDL(struct SDL_Context *sdl_context) {
     int result = SUCCESS;
 
     if (!SDL_Init(SDL_INIT_VIDEO)) {
@@ -18,12 +18,12 @@ enum Chip8Runtime initialize_SDL(struct SDL_Context *sdl_context) {
     return result;
 }
 
-enum Chip8Runtime update_display(struct Chip8Context *context) {
+enum Chip8Result update_display(struct Chip8Context *context) {
 
     return SUCCESS;
 }
 
-enum Chip8Runtime run_chip_8_context(struct Chip8Context *context) {
+enum Chip8Result run_chip_8_context(struct Chip8Context *context) {
     update(context);
     return update_display(context);
 }
