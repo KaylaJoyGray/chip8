@@ -36,7 +36,7 @@ struct Chip8Context {
 
     // Peripherals
     bool keyboard[16];
-    int display_buffer[DISPLAY_WIDTH][DISPLAY_HEIGHT];
+    int display_buffer[DISPLAY_HEIGHT][DISPLAY_WIDTH];
 };
 
 struct Chip8Context init_chip8_context();
@@ -45,7 +45,7 @@ struct Chip8Context init_chip8_context();
 enum Chip8Result load_rom(const char *file_name, struct Chip8Context *context);
 
 // Advances the emulator by 1 update cycle
-void update(struct Chip8Context *context);
+void update_chip_8(struct Chip8Context *context);
 
 // Instruction 00E0 - Clear the screen
 void clear_screen(struct Chip8Context *context);

@@ -18,16 +18,13 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    struct SDL_Context sdl_context = {
-        .window = NULL
-    };
+    struct SDLContext* sdl_context = initialize_SDL();
 
-    if (initialize_SDL(&sdl_context) != SUCCESS) {
-        quit_SDL(sdl_context);
+    if (!sdl_context) {
         return 1;
     }
 
-    run_chip_8_context(&chip8_context);
+    run_chip_8_context(&chip8_context, sdl_context);
 
     quit_SDL(sdl_context);
     return 0;

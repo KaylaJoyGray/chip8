@@ -50,12 +50,12 @@ enum Chip8Result load_rom(const char *file_name, struct Chip8Context *context) {
     return SUCCESS;
 }
 
-void update(struct Chip8Context *context) {
+void update_chip_8(struct Chip8Context *context) {
 }
 
 void clear_screen(struct Chip8Context *context) {
-    for (int r = 0; r < DISPLAY_WIDTH; ++r) {
-        for (int c = 0; c < DISPLAY_HEIGHT; ++c) {
+    for (int r = 0; r < DISPLAY_HEIGHT; ++r) {
+        for (int c = 0; c < DISPLAY_WIDTH; ++c) {
             context->display_buffer[r][c] = 0;
         }
     }
@@ -94,7 +94,7 @@ void draw_sprite(const uint8_t x, const uint8_t y, const uint8_t n, struct Chip8
                 context->V[0x0F] = 1;
             }
 
-            context->display_buffer[nx][ny] = display_bit & sprite_bit;
+            context->display_buffer[ny][nx] = display_bit & sprite_bit;
         }
     }
 }

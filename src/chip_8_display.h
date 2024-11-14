@@ -2,13 +2,14 @@
 
 #include "chip_8_context.h"
 
-struct SDL_Context {
+struct SDLContext {
     SDL_Window* window;
+    SDL_Renderer* renderer;
 };
 
-enum Chip8Result initialize_SDL(struct SDL_Context *sdl_context);
+struct SDLContext *initialize_SDL();
 
-enum Chip8Result run_chip_8_context(struct Chip8Context *context);
+enum Chip8Result run_chip_8_context(struct Chip8Context *chip_8_context, struct SDLContext *sdl_context);
 
-void quit_SDL();
+void quit_SDL(struct SDLContext *context);
 
